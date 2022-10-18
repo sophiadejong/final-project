@@ -31,8 +31,9 @@ export const login = async (email, password) => {
 
 export const newTask = async (task) => {
     const response = await supabase.from("task")
-    .insert(task);
+    .insert(task)
     // TODO indentificar la respuesta y retocanar lo que necesitamos p ej si se ha hecho
+    console.log(response)
 }
 
 export const getTasks = async () => {

@@ -15,15 +15,15 @@
 import { onMounted } from "vue";
 import {login,newTask} from './api'
 
-onMounted(async() => {
-  const id = await login('sophiamarinadejongy@gmail.com','1234567');
-  newTask({
-    user_id: id,
-    title: 'Titulo',
-    description: 'Description de otro task'
-  })
+// onMounted(async() => {
+//   const id = await login('sophiamarinadejongy@gmail.com','1234567');
+//   newTask({
+//     user_id: id,
+//     title: 'Titulo',
+//     description: 'Description de otro task'
+//   })
 
-});
+// });
 </script>
 
 <style scoped></style>

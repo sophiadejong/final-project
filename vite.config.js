@@ -7,5 +7,5 @@ export default defineConfig({
   // Carpeta donde creare el build de yarn
   build: { outDir: 'docs'},
   // Comprobaos si estamos en produccion yla case es el nombre del repositorio
-  base: process.env.NODE_ENV === 'produccion' ? '/final-project' : '/'
+  base: process.env.NODE_ENV === 'production' ? '/task-app/' : '/'
 })

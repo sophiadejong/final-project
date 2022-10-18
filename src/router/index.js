@@ -1,4 +1,4 @@
-import { def } from '@vue/shared'
+// import { def } from '@vue/shared'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [

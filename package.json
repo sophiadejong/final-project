@@ -1,5 +1,5 @@
 {
-  "name": "final-pro",
+  "name": "task-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5"
   },

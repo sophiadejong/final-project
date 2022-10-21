@@ -112,12 +112,18 @@ const deleteTask = () => {
 };
 </script>
 
-<style>
 
+<!-- <style scoped>
+.title {
+  font-size: 0.5rem;
+}
+</style> -->
+
+<style>
 .title {
   text-align: center;
-  font-size: 1.5rem;
   margin: 0;
+  font-size: 1.2rem;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 

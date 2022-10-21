@@ -1,22 +1,53 @@
 import { defineStore } from 'pinia'
+import { supabase } from '../supabase'
 
-export const useAuthStore = defineStore('auth', {
-  // arrow function recommended for full type inference
-  state: () => {
-    return {
-      // all these properties will have their type inferred automatically
-    //   nos indicara si el usuario esta identificado
-        isAuth: false,
-        // gurdaremos el id de supabase que nos dara al hacer el login
-        id: undefined
-    }
-  },
+export const useUserStore = defineStore("user", {
+  state: () => ({
+    user: null,
+  }),
   actions: {
-    login() {
-        // TODO cambiar el estado de id autentificacion del usuario
-    }, 
-    logout() {
-        // TODO cambiar el estado de id autentificacion del usuario
-    }
-  }
-})
+    async fetchUser() {
+      const user = await supabase.auth.user();
+      this.user = user;
+    },
+    async signUp(email, password) {
+      const { user, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+      if (error) throw error;
+      if (user) {
+        this.user = user;
+        console.log(this.user);
+      }
+    },
+    async signIn(email, password) {
+      const { user, error } = await supabase.auth.signIn(
+      {
+        email: email,
+        password: password,
+      },
+      {
+        shouldCreateUser: false,
+      });
+      if (error) throw error;
+      if (user) {
+        this.user = user;
+        console.log(this.user);
+      }
+    },
+    async signOut(){
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+    },
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: 'user',
+        storage: localStorage
+      }
+    ]
+  },
+});

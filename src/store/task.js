@@ -1,29 +1,59 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
+import { supabase } from "../supabase";
+import { useUserStore } from "./auth";
 
 export const useTaskStore = defineStore('task', {
-  // arrow function recommended for full type inference
-  state: () => {
-    return {
-      tasks: []
+  state: () => ({
+    tasks: [],
+  }),
+  actions: {
+    async getTasks() {
+      const { data: tasks } = await supabase
+        .from('task')
+        .select("*")
+        .order("id", { ascending: false });
+        // NO FUNCIONA!!
+        console.log(tasks, 'task!')
+      this.tasks = tasks;
+      return this.tasks;
+      
+    },
+    async editTask(title, description, id) {
+      const { data, error } = await supabase
+        .from('task')
+        .update({
+          title: title,
+          description: description,
+        })
+        .match({
+          id: id,
+        });
+    },
+    async deleteTask(id) {
+      const { data, error } = await supabase.from('task').delete().match({
+        id: id,
+      });
+    },
+    async completedTask(id, booleanValue) {
+      const { data, error } = await supabase
+        .from('task')
+        .update({ is_complete: booleanValue })
+        .match({
+          id: id,
+        });
+    },
+    async addTask(title, description) {
+      console.log(useUserStore().user.id);
+      const { data, error } = await supabase.from('task').insert([
+        {
+          user_id: useUserStore().user.id,
+          title: title,
+          is_completed: false,
+          description: description,
+        },
+        
+      ]);
+      console.log(error)
     }
   },
-  actions: {
-    setTask(){
-        // TODO guargar en el estado las tasks que nos da supabase
-    },
-    updateTask(id, task){
-        // TODO modifica el estado del task
-        // Encontrar el indice de la task con ese id y cambiarle el contenido con task
-    }, 
-    deleteTask(id){
-        // TODO modificar el estado borrando ese task
-        // Encontrar el indice de ese id y eliminamos ese indice de la array
-
-    }, 
-    addTask(task){
-        // TODO modificar el estado de taks haciendo un push de la task
-        // comprobar que tenemos el id al insertar el regiso, en caso de no 
-        // tenerlo tendrimaos que hacer el getTask
-    }
-  }
-})
+});

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: "Darker Grotesque", sans-serif;
+    background-color: antiquewhite;
+    height: 100%;
+    width: 100%;
+    
+}
+  .container-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    margin: 0;
+  }
+  
+  .flexbox-signin {
+    height: fit-content;
+    background-color: blue;
+    color: white;
+    padding: 5%;
+    border-radius: 25px;
+    border: 2px solid blue;
+  }

@@ -1,29 +1,34 @@
 <template>
-  <h1>Task App</h1>
-  <ul>
-    <li>
-      <router-link :to="{ name: 'home' }">Home</router-link>
-    </li>
-    <li>
-      <router-link :to="{ name: 'login' }">Login</router-link>
-    </li>
-  </ul>
-  <router-view></router-view>
+  <div>
+    <router-view />
+  </div>
 </template>
+
 <script setup>
-// import { createClient } from "@supabase/supabase-js";
 import { onMounted } from "vue";
-import {login,newTask} from './api'
+import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+import { useUserStore } from "./store/auth.js";
+import { ref } from "vue";
 
-// onMounted(async() => {
-//   const id = await login('sophiamarinadejongy@gmail.com','1234567');
-//   newTask({
-//     user_id: id,
-//     title: 'Titulo',
-//     description: 'Description de otro task'
-//   })
+const router = useRouter();
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 
-// });
+onMounted(async () => {
+  const appReady = ref(null);
+  try {
+    await userStore.fetchUser(); 
+    if (!user.value) {
+      appReady.value = true;
+      router.push({ path: "/auth/login" });
+    } else {
+      // router.push({ path: "/" });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+});
 </script>
 
-<style scoped></style>
+<style></style>

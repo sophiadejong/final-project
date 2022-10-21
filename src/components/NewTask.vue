@@ -1,6 +1,6 @@
 <template>
   <div class="container-tasks">
-    <h1>Add a task</h1>
+    <h1 class="title-margin">Add a task</h1>
     <div class="task-form" id="formInputs">
       <input
         type="text"
@@ -62,6 +62,11 @@ const errorFunction = () => {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap');
+
+.title-margin {
+  padding-left: 5%;
+  margin: 0 0 2% 0;
+}
 
 .container-tasks h1 {
   font-size: 3rem;

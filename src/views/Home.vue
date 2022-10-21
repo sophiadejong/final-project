@@ -1,6 +1,8 @@
 <template>
+<body>
 <Header/>
 <NewTask @childEmitTask="addTask" />
+<div class="container-old-items">
 <TaskItem 
     v-for="task in useTaskStore().tasks"
     :key="task.id"
@@ -9,7 +11,9 @@
     @childEditStatus="editTask"
     @childDeleteStatus="deleteTask"
   />
+</div>
 <Footer/>
+</body>
 </template>
 
 <script setup>
@@ -49,5 +53,17 @@ const deleteTask = async (id) => {
 </script>
 
 <style>
+body {
+  width: 100%;
+  margin: 0;
+}
+
+.container-old-items {
+  width: 900px;
+  display: flex;
+  /* columns: ; */
+  /* padding-bottom: 10%; */
+  padding: 3% 8% 10% 8%;
+}
 </style>
 

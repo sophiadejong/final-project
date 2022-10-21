@@ -63,11 +63,14 @@ const errorFunction = () => {
 <style>
 
 .container-tasks h1 {
-  font-size: 2rem;
+  font-size: 3rem;
+  color: blue;
+
 }
 .container-tasks {
-  padding: 4%;
+  padding: 8% 8% 0 8%;
   height: fit-content;
+  font-family: "Darker Grotesque", sans-serif;
 }
 
 .task-form {

@@ -12,35 +12,10 @@ export const useTaskStore = defineStore('task', {
         .from('task')
         .select("*")
         .order("id", { ascending: false });
-        // NO FUNCIONA!!
-        console.log(tasks, 'task!')
+        console.log(tasks)
       this.tasks = tasks;
       return this.tasks;
       
-    },
-    async editTask(title, description, id) {
-      const { data, error } = await supabase
-        .from('task')
-        .update({
-          title: title,
-          description: description,
-        })
-        .match({
-          id: id,
-        });
-    },
-    async deleteTask(id) {
-      const { data, error } = await supabase.from('task').delete().match({
-        id: id,
-      });
-    },
-    async completedTask(id, booleanValue) {
-      const { data, error } = await supabase
-        .from('task')
-        .update({ is_complete: booleanValue })
-        .match({
-          id: id,
-        });
     },
     async addTask(title, description) {
       console.log(useUserStore().user.id);
@@ -50,10 +25,33 @@ export const useTaskStore = defineStore('task', {
           title: title,
           is_completed: false,
           description: description,
-        },
-        
+        },      
       ]);
-      console.log(error)
+    },
+
+    async editTask(title, description, id) {
+      const { data, error } = await supabase.from('task')
+        .update({
+          title: title,
+          description: description,
+        })
+        .match({
+          id: id,
+        });
+        // console.log('THIS IS THE ERROR', error)
+    },
+    async deleteTask(id) {
+      const { data, error } = await supabase.from('task').delete().match({
+        id: id,
+      });
+    },
+    async completedTask(id, booleanValue) {
+      const { data, error } = await supabase
+        .from('task')
+        .update({ is_completed: booleanValue })
+        .match({
+          id: id,
+        });
     }
   },
 });

@@ -82,7 +82,7 @@ const errorFunction = () => {
 
 input,
 textarea {
-  background-color: antiquewhite;
+  background-color: white;
   width: -webkit-fill-available;
   font-family: "Darker Grotesque", sans-serif;
   border: 2px solid antiquewhite;

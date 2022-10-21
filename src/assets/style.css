@@ -2,7 +2,9 @@
 
 body {
     font-family: "Darker Grotesque", sans-serif;
-    background-color: antiquewhite;
+    background: rgb(6,0,255);
+    background: linear-gradient(90deg, rgba(6,0,255,1) 0%, rgba(255,232,214,0) 3%, rgba(255,232,214,0) 97%, rgba(6,0,255,1) 100%);
+    /* background-color: antiquewhite; */
     height: 100%;
     width: 100%;
     

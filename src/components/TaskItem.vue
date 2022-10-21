@@ -118,6 +118,7 @@ const deleteTask = () => {
   text-align: center;
   font-size: 1.5rem;
   margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .description {

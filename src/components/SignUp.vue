@@ -59,7 +59,7 @@
         </div>
         <p v-if="errorMsg" class="" role="alert">{{ errorMsg }}</p>
         <button type="submit" class="">Sign Up</button>
-        <div>
+        <div class="container-signin">
           <p>
             Have an account?
             <OwnRouter :route="route" :buttonText="buttonText" />
@@ -110,6 +110,7 @@ const signUp = async () => {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
 
 a {
   color: white;
@@ -121,12 +122,13 @@ a {
   font-size: 2.4rem;
   text-align: center;
   letter-spacing: .1rem;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 input {
   width: 100%;
   background-color: white;
-  border: 2px solid blue;
+  border: 2px solid transparent;
   border-radius: 5px;
   margin: 2% 0 3% 0;
   padding: 2% 0 2% 3%;
@@ -141,6 +143,13 @@ button {
   border-radius: 5px;
   margin-top: 7%;
   padding: 2% 0 2% 3%;
+    /* font-family: 'Montserrat Alternates', sans-serif; */
 
+
+}
+
+.container-signin {
+  text-align: center;
+  margin-top: 8%;
 }
 </style>

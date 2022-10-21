@@ -42,9 +42,8 @@
         </div>
         <div class="container-signup">
           <div>
-            <p>or</p>
-            <div class="container-link"></div>
-            <OwnRouter :route="routeUp" :buttonText="buttonTextUp" />
+            <p>or <OwnRouter :route="routeUp" :buttonText="buttonTextUp" /></p>
+            
           </div>
         </div>
       </form>
@@ -88,11 +87,12 @@ const signIn = async () => {
 </script>
 
 <style scoped>
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
 input {
   width: 100%;
   background-color: white;
-  border: 2px solid blue;
+  border: 2px solid transparent;
   border-radius: 5px;
   margin: 2% 0 3% 0;
   padding: 2% 0 2% 3%;
@@ -112,6 +112,7 @@ button {
 .container-signup {
   text-align: center;
   width: 100%;
+  margin-top: 8%;
 }
 
 .container-link {
@@ -119,14 +120,18 @@ button {
   width: 100%;
 }
 
-</style>
-
-<style scoped>
 .title-app {
   font-size: 2.4rem;
   text-align: center;
   letter-spacing: .1rem;
+  /* font-family: 'Raleway Dots', cursive; */
+  font-family: 'Montserrat Alternates', sans-serif;
 }
+
+</style>
+
+<style scoped>
+
 
 
 a {

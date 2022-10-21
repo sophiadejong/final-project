@@ -1,28 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap");
 
 body {
-    font-family: "Darker Grotesque", sans-serif;
-    background: rgb(6,0,255);
-    background: linear-gradient(90deg, rgba(6,0,255,1) 0%, rgba(255,232,214,0) 3%, rgba(255,232,214,0) 97%, rgba(6,0,255,1) 100%);
-    /* background-color: antiquewhite; */
-    height: 100%;
-    width: 100%;
-    
+  font-family: "Darker Grotesque", sans-serif;
+  background: rgb(6, 0, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 0, 255, 1) 0%,
+    rgba(255, 232, 214, 0) 3%,
+    rgba(255, 232, 214, 0) 97%,
+    rgba(6, 0, 255, 1) 100%
+  );
+  /* background-color: antiquewhite; */
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
-  .container-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    margin: 0;
-  }
-  
-  .flexbox-signin {
-    height: fit-content;
-    background-color: blue;
-    color: white;
-    padding: 5%;
-    border-radius: 25px;
-    border: 2px solid blue;
-  }
+.container-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  margin: 0;
+}
+
+.flexbox-signin {
+  height: fit-content;
+  background-color: blue;
+  color: white;
+  padding: 5%;
+  border-radius: 25px;
+  border: 2px solid blue;
+  -webkit-box-shadow: 0px 0px 33px 0px blue;
+  -moz-box-shadow: 0px 0px 33px 0px blue;
+  box-shadow: 0px 0px 33px 0px blue;
+}

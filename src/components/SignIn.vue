@@ -125,6 +125,7 @@ button {
 .title-app {
   font-size: 2.4rem;
   text-align: center;
+  letter-spacing: .1rem;
 }
 
 

@@ -3,7 +3,7 @@
     <div>
       <div id="main-menu" class="main-menu container-header">
         <router-link to="/">
-          <h2>TODO TASK APP</h2>
+          <h2>TO-DO TASK APP</h2>
         </router-link>
         <p id="welcomemsg" class="">
           <u>Username:</u><b>&nbsp;<span> {{ name }}</span></b>
@@ -48,6 +48,9 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
+h2 {
+  letter-spacing: .1rem;
+}
 
 #check {
   width: 10%;
@@ -69,6 +72,7 @@ body {
   display: flex;
   background-color: blue;
   color: white;
+  /* letter-spacing: .05rem; */
   display: flex;
   align-items: center;
   justify-content: space-between;

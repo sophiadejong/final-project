@@ -114,12 +114,13 @@ const signUp = async () => {
 a {
   color: white;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .title-app {
   font-size: 2.4rem;
   text-align: center;
-  /* text-decoration: underline; */
+  letter-spacing: .1rem;
 }
 
 input {

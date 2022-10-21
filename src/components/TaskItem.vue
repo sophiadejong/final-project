@@ -113,6 +113,16 @@ const deleteTask = () => {
 </script>
 
 <style>
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.description {
+  height: 12vh;
+}
 .item-container {
   background-color: blue;
   display: block;

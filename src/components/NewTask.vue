@@ -61,6 +61,7 @@ const errorFunction = () => {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap');
 
 .container-tasks h1 {
   font-size: 3rem;
@@ -78,6 +79,8 @@ const errorFunction = () => {
   width: 23%;
   border-radius: 25px;
   padding: 3%;
+  font-family: "Darker Grotesque", sans-serif;
+
 }
 
 input,

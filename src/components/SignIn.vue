@@ -1,7 +1,7 @@
 <template>
   <div class="container-main">
     <div class="flexbox-signin">
-      <h1 class="">TODO TASK APP</h1>
+      <h1 class="title-app">TO-DO TASK APP</h1>
       <form @submit.prevent="signIn">
         <label class="" for="form1">Email</label>
         <div class="">
@@ -91,7 +91,7 @@ const signIn = async () => {
 
 input {
   width: 100%;
-  background-color: antiquewhite;
+  background-color: white;
   border: 2px solid blue;
   border-radius: 5px;
   margin: 2% 0 3% 0;
@@ -122,11 +122,17 @@ button {
 </style>
 
 <style scoped>
+.title-app {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
 
 a {
   color: white;
   text-decoration: underline;
   width: 100%;
   font-weight: bold;
+
 }
 </style>

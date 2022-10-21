@@ -56,6 +56,7 @@ const deleteTask = async (id) => {
 body {
   width: 100%;
   margin: 0;
+  font-family: "Darker Grotesque", sans-serif;
 }
 
 .container-old-items {

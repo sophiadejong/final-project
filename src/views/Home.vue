@@ -1,36 +1,39 @@
 <template>
-<body>
-<Header/>
-<NewTask @childEmitTask="addTask" />
-<div class="container-old-items">
-<TaskItem 
-    v-for="task in useTaskStore().tasks"
-    :key="task.id"
-    :item="task"
-    @childToggleStatus="completedTask"
-    @childEditStatus="editTask"
-    @childDeleteStatus="deleteTask"
-  />
-</div>
-<Footer/>
-</body>
+  <body>
+    <Header />
+    <div class="all-items">
+      <div class="container-old-items">
+        <NewTask @childEmitTask="addTask" />
+        <TaskItem
+          v-for="task in useTaskStore().tasks"
+          :key="task.id"
+          :item="task"
+          @childToggleStatus="completedTask"
+          @childEditStatus="editTask"
+          @childDeleteStatus="deleteTask"
+        />
+      </div>
+    </div>
+    <Footer />
+  </body>
 </template>
 
 <script setup>
-
-import Header from '../components/Header.vue'
-import NewTask from '../components/NewTask.vue'
-import TaskItem from '../components/TaskItem.vue'
-import Footer from '../components/Footer.vue'
-import { useTaskStore } from '../store/task'
+import Header from "../components/Header.vue";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+import Footer from "../components/Footer.vue";
+import { useTaskStore } from "../store/task";
 
 useTaskStore().getTasks();
 const addTask = async (newTask) => {
   // console.log(newTask)
-  const response = await useTaskStore().addTask(newTask.title, newTask.description);
+  const response = await useTaskStore().addTask(
+    newTask.title,
+    newTask.description
+  );
   // console.log(response)
   useTaskStore().getTasks();
-
 };
 
 const completedTask = async (id, booleanValue) => {
@@ -45,6 +48,7 @@ const editTask = async (newTask) => {
     newTask.description,
     newTask.id
   );
+  console.log(newTask);
   useTaskStore().getTasks();
 };
 
@@ -52,7 +56,6 @@ const deleteTask = async (id) => {
   const response = await useTaskStore().deleteTask(id);
   useTaskStore().getTasks();
 };
-
 </script>
 
 <style>
@@ -62,10 +65,20 @@ body {
   font-family: "Darker Grotesque", sans-serif;
 }
 
+.all-items {
+  padding-top: 8%;
+}
+
 .container-old-items {
-  width: 80%;
-  display: flex;
+  width: 84%;
+  display: grid;
   padding: 3% 8% 10% 8%;
+  gap: 2rem;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(auto, auto));
+  /* flex-wrap: wrap; */
+  grid-template-columns: auto auto auto;
+  /* align-items: center;
+  justify-content: center; */
 }
 </style>
-

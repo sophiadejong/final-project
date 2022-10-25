@@ -1,12 +1,12 @@
 <template>
   <div class="container-tasks">
-    <h1 class="title-margin">Add a task</h1>
+    <h2 class="title-margin">Add a new task</h2>
     <div class="task-form" id="formInputs">
       <input
         type="text"
         id="form3Example1"
         class=""
-        placeholder="Task title"
+        placeholder="New task title"
         v-model="title"
       />
       <div>
@@ -64,26 +64,29 @@ const errorFunction = () => {
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&display=swap');
 
 .title-margin {
-  padding-left: 5%;
+  padding-left: 6%;
   margin: 0 0 2% 0;
+  text-transform: uppercase;
 }
 
-.container-tasks h1 {
-  font-size: 3rem;
+.container-tasks h2 {
+  font-size: 1rem;
   color: blue;
-
+  letter-spacing: 0;
 }
+
 .container-tasks {
-  padding: 8% 8% 0 8%;
+  /* margin-top: 10%; */
+  /* padding: 8% 8% 0 8%; */
   height: fit-content;
   font-family: "Darker Grotesque", sans-serif;
 }
 
 .task-form {
   background-color: blue;
-  width: 23%;
+  /* width: 23%; */
   border-radius: 25px;
-  padding: 3%;
+  padding: 6%;
   font-family: "Darker Grotesque", sans-serif;
 
 }

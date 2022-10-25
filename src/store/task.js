@@ -35,10 +35,8 @@ export const useTaskStore = defineStore('task', {
           title: title,
           description: description,
         })
-        .match({
-          id: id,
-        });
-        // console.log('THIS IS THE ERROR', error)
+        .eq("id", id);
+        console.log('THIS IS THE ERROR', error)
     },
     async deleteTask(id) {
       const { data, error } = await supabase.from('task').delete().match({

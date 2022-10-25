@@ -1,5 +1,10 @@
 <template>
-  <div class="item-container">
+  <div class="item-container" :class="{'completed-task-bg': item.is_completed}">
+    <div class="date-item">
+      <div class="time">
+      {{date}}
+    </div>
+    </div>
     <h3 class="title">{{ item.title }}</h3>
     <p class="description">{{ item.description }}</p>
     <div class="buttons-container">
@@ -13,12 +18,7 @@
       >
         Completed task
         <span
-          v-if="!isCompleted"
-          style="
-            .card-title,
-            .card-text"
-          class="card-text"
-        >
+          v-if="!isCompleted">
         </span>
         <span v-else class=""> </span>
       </button>
@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, computed } from "vue";
 
 const taskTitle = ref("");
 const taskDescription = ref("");
@@ -85,15 +85,22 @@ const emit = defineEmits([
   "childDeleteStatus",
 ]);
 
+
 const props = defineProps(["item"]);
 const showEdit = () => {
   showEditOptions.value = !showEditOptions.value;
 };
 
+const date = computed ( () => {
+  const time = new Date (props.item.created_at)
+  return time.toDateString()
+})
+
 const editTask = () => {
   const newTask = {
     title: taskTitle.value,
     description: taskDescription.value,
+    id: props.item.id
   };
   emit("childEditStatus", newTask);
   (taskTitle.value = ""), (taskDescription.value = "");
@@ -130,8 +137,9 @@ const deleteTask = () => {
   background-color: blue;
   display: block;
   color: white;
-  width: 30vw;
-  padding: 2%;
+  flex: 1 1 300px; /*grow | shrink | basis */
+  /* width: 30vw; */
+  padding: 6%;
   margin-right: 2%;
   border-radius: 25px;
 }
@@ -139,6 +147,16 @@ const deleteTask = () => {
 .buttons-container {
   display: flex;
   justify-content: space-between;
+}
+
+.date-item {
+  width: 100%;
+  display: flow-root;
+}
+
+.time {
+  float: right;
+  font-size: 0.9rem;
 }
 
 .completed-task,
@@ -150,12 +168,17 @@ const deleteTask = () => {
   border-radius: 5px;
   padding: 2%;
   color: blue;
+  font-size: 0.7rem;
   font-weight: bold;
   border: 2px solid transparent;
 }
 
 .edit-container {
   padding-top: 5%;
+}
+
+.completed-task-bg {
+  background-color: green;
 }
 
 </style>

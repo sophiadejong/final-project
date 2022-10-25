@@ -42,8 +42,7 @@
         </div>
         <div class="container-signup">
           <div>
-            <p>or <OwnRouter :route="routeUp" :buttonText="buttonTextUp" /></p>
-            
+            <p>or <OwnRouter :route="routeUp" :buttonText="buttonTextUp" /></p>          
           </div>
         </div>
       </form>
@@ -78,7 +77,7 @@ const signIn = async () => {
     redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value =
-      "The email or password you entered is incorrect.";
+      "The email or password you entered is incorrect";
     setTimeout(() => {
       errorMsg.value = null;
     }, 5000);

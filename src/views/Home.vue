@@ -38,6 +38,7 @@ const completedTask = async (id, booleanValue) => {
   const response = await useTaskStore().completedTask(id, booleanValue);
   useTaskStore().getTasks();
 };
+
 const editTask = async (newTask) => {
   const response = await useTaskStore().editTask(
     newTask.title,
@@ -46,10 +47,12 @@ const editTask = async (newTask) => {
   );
   useTaskStore().getTasks();
 };
+
 const deleteTask = async (id) => {
   const response = await useTaskStore().deleteTask(id);
   useTaskStore().getTasks();
 };
+
 </script>
 
 <style>
@@ -60,10 +63,8 @@ body {
 }
 
 .container-old-items {
-  width: 900px;
+  width: 80%;
   display: flex;
-  /* columns: ; */
-  /* padding-bottom: 10%; */
   padding: 3% 8% 10% 8%;
 }
 </style>

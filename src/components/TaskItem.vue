@@ -16,10 +16,7 @@
           v-if="!isCompleted"
           style="
             .card-title,
-            .card-text {
-              text-decoration: line-through;
-            }
-          "
+            .card-text"
           class="card-text"
         >
         </span>
@@ -112,7 +109,6 @@ const deleteTask = () => {
 };
 </script>
 
-
 <!-- <style scoped>
 .title {
   font-size: 0.5rem;
@@ -134,7 +130,7 @@ const deleteTask = () => {
   background-color: blue;
   display: block;
   color: white;
-  width: 300px;
+  width: 30vw;
   padding: 2%;
   margin-right: 2%;
   border-radius: 25px;

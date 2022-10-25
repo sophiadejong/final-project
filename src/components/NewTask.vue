@@ -6,7 +6,7 @@
         type="text"
         id="form3Example1"
         class=""
-        placeholder="New task title"
+        placeholder="Task title"
         v-model="title"
       />
       <div>
@@ -87,6 +87,11 @@ const errorFunction = () => {
   font-family: "Darker Grotesque", sans-serif;
 
 }
+
+/* textarea {
+  position: absolute;
+    width: 100%;
+} */
 
 input,
 textarea {

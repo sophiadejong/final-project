@@ -12,7 +12,7 @@ export const useTaskStore = defineStore('task', {
         .from('task')
         .select("*")
         .order("id", { ascending: false });
-        console.log(tasks)
+        // console.log(tasks)
       this.tasks = tasks;
       return this.tasks;
       
@@ -36,13 +36,14 @@ export const useTaskStore = defineStore('task', {
           description: description,
         })
         .eq("id", id);
-        console.log('THIS IS THE ERROR', error)
+        // console.log('THIS IS THE ERROR', error)
     },
     async deleteTask(id) {
       const { data, error } = await supabase.from('task').delete().match({
         id: id,
       });
     },
+
     async completedTask(id, booleanValue) {
       const { data, error } = await supabase
         .from('task')

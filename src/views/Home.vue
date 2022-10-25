@@ -5,7 +5,7 @@
       <div class="container-old-items">
         <NewTask @childEmitTask="addTask" />
         <TaskItem
-          v-for="task in useTaskStore().tasks"
+          v-for="task in tasks"
           :key="task.id"
           :item="task"
           @childToggleStatus="completedTask"
@@ -24,6 +24,7 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import Footer from "../components/Footer.vue";
 import { useTaskStore } from "../store/task";
+import { computed } from 'vue'
 
 useTaskStore().getTasks();
 const addTask = async (newTask) => {
@@ -35,6 +36,13 @@ const addTask = async (newTask) => {
   // console.log(response)
   useTaskStore().getTasks();
 };
+
+const tasks = computed (() => {
+  // useTaskStore().tasks.filter()
+  return useTaskStore().tasks
+}) 
+// un/complered true or false
+// crear variable que marque el filtro, usar variable en el filter y retornar lo que de el filter
 
 const completedTask = async (id, booleanValue) => {
   booleanValue = !booleanValue;

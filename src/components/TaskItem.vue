@@ -64,8 +64,9 @@
             v-model="taskDescription"
           />
         </div>
-        <div class="">
-          <button type="submit" id="btnEdit" class="edit-btn">Edit Task</button>
+        <div class="edit-close-btns">
+          <button type="submit" id="btnEdit" class="edit-btn">Edit task</button>
+          <button v-on:click="showEditOptions = false" type="" id="closeEdit" class="close-edit-btn">Close edit task</button>
         </div>
       </form>
     </div>
@@ -75,8 +76,13 @@
 <script setup>
 import { ref, defineProps, computed } from "vue";
 
-const taskTitle = ref("");
-const taskDescription = ref("");
+const props = defineProps(["item"]);
+const showEdit = () => {
+  showEditOptions.value = !showEditOptions.value;
+};
+
+const taskTitle = ref(props.item.title);
+const taskDescription = ref(props.item.description);
 const showEditOptions = ref(false);
 const isCompleted = ref(false);
 const emit = defineEmits([
@@ -84,12 +90,6 @@ const emit = defineEmits([
   "childToggleStatus",
   "childDeleteStatus",
 ]);
-
-
-const props = defineProps(["item"]);
-const showEdit = () => {
-  showEditOptions.value = !showEditOptions.value;
-};
 
 const date = computed ( () => {
   const time = new Date (props.item.created_at)
@@ -114,6 +114,8 @@ const completedTask = (id) => {
 const deleteTask = () => {
   emit("childDeleteStatus", props.item.id);
 };
+
+
 </script>
 
 <!-- <style scoped>
@@ -134,8 +136,9 @@ const deleteTask = () => {
   height: 12vh;
 }
 .item-container {
-  background-color: blue;
+  background-color: red;
   display: block;
+  height: fit-content;
   color: white;
   flex: 1 1 300px; /*grow | shrink | basis */
   /* width: 30vw; */
@@ -144,7 +147,7 @@ const deleteTask = () => {
   border-radius: 25px;
 }
 
-.buttons-container {
+.buttons-container, .edit-close-btns {
   display: flex;
   justify-content: space-between;
 }
@@ -159,10 +162,16 @@ const deleteTask = () => {
   font-size: 0.9rem;
 }
 
+#closeEdit {
+  color: red;
+  /* background-color: red; */
+}
+
 .completed-task,
 .show-edit,
 .delete-task,
-.edit-btn {
+.edit-btn,
+.close-edit-btn {
   width: auto;
   /* aspect-ratio: 1; */
   border-radius: 5px;
@@ -180,5 +189,6 @@ const deleteTask = () => {
 .completed-task-bg {
   background-color: green;
 }
+
 
 </style>

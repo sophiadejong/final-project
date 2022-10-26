@@ -133,18 +133,19 @@ const deleteTask = () => {
 }
 
 .description {
-  height: 12vh;
+  height: fit-content;
 }
 .item-container {
   background-color: red;
   display: block;
   height: fit-content;
   color: white;
-  flex: 1 1 300px; /*grow | shrink | basis */
-  /* width: 30vw; */
+  /* flex: 1 1 auto; */
+  width: 23.5vw;
   padding: 6%;
   margin-right: 2%;
   border-radius: 25px;
+  transition: 1s;
 }
 
 .buttons-container, .edit-close-btns {
@@ -162,6 +163,10 @@ const deleteTask = () => {
   font-size: 0.9rem;
 }
 
+#btnEdit {
+  background-color: blue;
+  color: white;
+}
 #closeEdit {
   color: red;
   /* background-color: red; */

@@ -41,7 +41,7 @@ const tasks = computed (() => {
   // useTaskStore().tasks.filter()
   return useTaskStore().tasks
 }) 
-// un/complered true or false
+// un/completed true or false
 // crear variable que marque el filtro, usar variable en el filter y retornar lo que de el filter
 
 const completedTask = async (id, booleanValue) => {

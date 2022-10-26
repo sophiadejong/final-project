@@ -13,7 +13,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
     plugins: [vue()],
-    base: process.env.NODE_ENV === 'production' ? '/task-app.git/' : '/',
+    base: process.env.NODE_ENV === 'production' ? '/task-app/' : '/',
     build: {
         outDir: 'docs',
         rollupOptions: {
@@ -25,6 +25,6 @@ export default defineConfig({
         }
     },
     server: {
-        base: process.env.NODE_ENV === 'production' ? '/task-app.git/' : '/',
+        base: process.env.NODE_ENV === 'production' ? '/task-app/' : '/',
     }
 })

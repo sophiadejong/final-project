@@ -52,7 +52,7 @@
           type="text"
           id="form3Example20"
           class=""
-          placeholder="Edit title"
+          :placeholder="props.item.title"
           v-model="taskTitle"
         />
         <div>
@@ -60,7 +60,7 @@
             type="text"
             id="form3Example21"
             class=""
-            placeholder="Edit description"
+            :placeholder="props.item.description"
             v-model="taskDescription"
           />
         </div>

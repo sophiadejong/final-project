@@ -144,7 +144,7 @@ body {
 @media screen and (max-width: 900px) {
 
   .all-items {
-    padding-top: 20%;
+    padding-top: 25%;
   }
   .show-filters {
     padding-left: 10%;

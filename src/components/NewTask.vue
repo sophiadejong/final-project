@@ -145,5 +145,9 @@ input,
 textarea {
   font-size: 1.4rem;
 }
+
+.btn-add-task {
+  font-size: 0.8rem;
+}
 }
 </style>

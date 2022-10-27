@@ -1,7 +1,4 @@
 <template>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
   <body>
     <Header />
     <div class="all-items">
@@ -26,7 +23,6 @@
     <Footer />
   </body>
 </template>
-
 <script setup>
 import Header from "../components/Header.vue";
 import NewTask from "../components/NewTask.vue";
@@ -34,9 +30,7 @@ import TaskItem from "../components/TaskItem.vue";
 import Footer from "../components/Footer.vue";
 import { useTaskStore } from "../store/task";
 import { ref, computed } from "vue";
-
 const filter = ref('showAll') 
-
 useTaskStore().getTasks();
 const addTask = async (newTask) => {
   // console.log(newTask)
@@ -47,23 +41,17 @@ const addTask = async (newTask) => {
   // console.log(response)
   useTaskStore().getTasks();
 };
-
 const tasks = computed(() => {
   // useTaskStore().tasks.filter()
   return useTaskStore().tasks;
 });
 // un/completed true or false
 // crear variable que marque el filtro, usar variable en el filter y retornar lo que de el filter
-
 const completedTask = async (id, booleanValue) => {
   booleanValue = !booleanValue;
   const response = await useTaskStore().completedTask(id, booleanValue);
   useTaskStore().getTasks();
 };
-
-
-
-
 const editTask = async (newTask) => {
   const response = await useTaskStore().editTask(
     newTask.title,
@@ -73,20 +61,17 @@ const editTask = async (newTask) => {
   console.log(newTask);
   useTaskStore().getTasks();
 };
-
 const deleteTask = async (id) => {
   const response = await useTaskStore().deleteTask(id);
   useTaskStore().getTasks();
 };
 </script>
-
 <style>
 body {
   width: 100%;
   margin: 0;
   font-family: "Darker Grotesque", sans-serif;
 }
-
 body {
   background: linear-gradient(
     90deg,
@@ -95,12 +80,10 @@ body {
     rgba(255, 232, 214, 0) 97%,
     blue 100%);
 }
-
 .all-items {
   padding-top: 7.5%;
   margin: 0;
 }
-
 .container-old-items {
   width: 84%;
   display: grid;
@@ -114,7 +97,6 @@ body {
   
   justify-content: center; */
 }
-
 .show-filters {
     /* position: absolute; */
     right: 0;
@@ -124,7 +106,6 @@ body {
     justify-content: space-between;
     width: -webkit-fill-available;
 }
-
 button {
   width: auto;
   /* aspect-ratio: 1; */
@@ -136,31 +117,34 @@ button {
   font-weight: bold;
   border: 2px solid transparent;
 } 
-
-@media screen and  (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .container-old-items {
     grid-template-columns: auto auto;
   }
+
+  .all-items {
+    padding-top: 20%;
+  }
+  .show-filters {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  button {
+    font-size: 0.8rem;
+  }
+  
 }
 
 @media screen and  (max-width: 780px) {
   .container-old-items {
+    margin-top: 5%;
     grid-template-columns: auto;
-  }
-  
-  .all-items {
-    padding-top: 20%;
-  }
-
-  .show-filters {
-    padding-left: 15%;
-    padding-right: 15%;
   }
 
   button {
     font-size: 1rem;
   }
+  
 }
-
 
 </style>

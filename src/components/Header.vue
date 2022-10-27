@@ -87,7 +87,7 @@ a {
 }
 
 @media screen and  (max-width: 900px) {
-  #welcomemsg, #today {
+  #welcomemsg {
     display: none;
   }
 }

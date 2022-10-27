@@ -8,7 +8,7 @@
         <p id="welcomemsg" class="">
           <u>Username:</u><b>&nbsp;<span> {{ name }}</span></b>
         </p>
-        <p>Today is: <b>{{ today.toDateString() }}</b></p>
+        <p id="today">Today is: <b>{{ today.toDateString() }}</b></p>
         <button @click="signOut" type="button" id="btnsignout">Sign Out</button>
       </div>
     </div>
@@ -84,6 +84,12 @@ h2 {
 a {
   color: white;
   text-decoration: none;
+}
+
+@media screen and  (max-width: 900px) {
+  #welcomemsg, #today {
+    display: none;
+  }
 }
 
 </style>

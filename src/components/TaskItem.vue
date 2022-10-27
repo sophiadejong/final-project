@@ -234,5 +234,17 @@ const deleteTask = () => {
   background-color: green;
 }
 
+@media screen and  (max-width: 900px) {
+  .item-container {
+    width: 35vw;
+  }
+}
+
+@media screen and  (max-width: 780px) {
+  .item-container {
+    width: 74vw;
+  }
+}
+
 
 </style>

@@ -1,4 +1,7 @@
 <template>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
   <body>
     <Header />
     <div class="all-items">
@@ -134,9 +137,28 @@ button {
   border: 2px solid transparent;
 } 
 
-@media screen and (max-width: 900px) {
+@media screen and  (max-width: 900px) {
   .container-old-items {
     grid-template-columns: auto auto;
+  }
+}
+
+@media screen and  (max-width: 780px) {
+  .container-old-items {
+    grid-template-columns: auto;
+  }
+  
+  .all-items {
+    padding-top: 20%;
+  }
+
+  .show-filters {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  button {
+    font-size: 1rem;
   }
 }
 

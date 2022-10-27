@@ -1,7 +1,7 @@
 <template>
   <div class="container-main">
     <div class="flexbox-signin">
-      <h1 class="title-app">TO-DO TASK APP</h1>
+      <h1 class="title-app">TO-DO<br>TASK APP</h1>
       <form @submit.prevent="signIn">
         <label class="" for="form1">Email</label>
         <div class="">
@@ -120,18 +120,20 @@ button {
 }
 
 .title-app {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   text-align: center;
   letter-spacing: .1rem;
   /* font-family: 'Raleway Dots', cursive; */
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
+form {
+  width: 97%;
+}
+
 </style>
 
 <style scoped>
-
-
 
 a {
   color: white;

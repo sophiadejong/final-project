@@ -94,7 +94,7 @@ body {
   grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(auto, auto));
   /* flex-wrap: wrap; */
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 26vw 26vw 26vw;
   /* align-items: center;
   
   justify-content: center; */
@@ -127,10 +127,21 @@ body {
   font-family: 'Montserrat Alternates', sans-serif;
 } 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
+  .show-filters {
+    padding-left: 45%;
+    padding-right: 9%;
+  }
+}
+
+@media screen and (max-width: 1070px) {
   .container-old-items {
     grid-template-columns: auto auto;
   }
+
+}
+
+@media screen and (max-width: 900px) {
 
   .all-items {
     padding-top: 20%;

@@ -234,7 +234,7 @@ const deleteTask = () => {
   background-color: green;
 }
 
-@media screen and  (max-width: 900px) {
+@media screen and  (max-width: 1050px) {
   .item-container {
     width: 35vw;
   }

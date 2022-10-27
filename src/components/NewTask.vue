@@ -129,7 +129,7 @@ textarea {
   padding: 2% 0 2% 3%;
 }
 
-@media screen and  (max-width: 900px) {
+@media screen and  (max-width: 1050px) {
   .task-form {
     width: 35vw;
     margin-top: 0;

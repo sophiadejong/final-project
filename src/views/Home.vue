@@ -3,7 +3,7 @@
     <Header />
     <div class="all-items">
       <div class="show-filters">
-        <h4>SHOW:</h4>
+        <h4 id="hide-show">SHOW:</h4>
       <button @click="filter='showAll'" class="filter-btns" style="background-color: blue; color: white">All tasks</button>
       <button @click="filter='completedTasks'" class="filter-btns" style="background-color: green; color: white">Completed</button>
       <button @click="filter='incompletedTasks'" class="filter-btns" style="background-color: red; color: white">Incompleted</button>
@@ -147,8 +147,16 @@ body {
     padding-top: 20%;
   }
   .show-filters {
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .filter-btns {
+    font-size: 0.65rem;
+  }
+
+  #hide-show {
+    display: none;
   }
   /* .filter-btns {
     font-size: 0.8rem;
@@ -162,9 +170,9 @@ body {
     grid-template-columns: auto;
   }
 
-  .filter-btns {
+  /* .filter-btns {
     font-size: 0.8rem;
-  }
+  } */
   
 }
 

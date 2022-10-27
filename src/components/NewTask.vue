@@ -140,5 +140,10 @@ textarea {
   .task-form{
     width: 74vw;
   }
+
+input,
+textarea {
+  font-size: 1.4rem;
+}
 }
 </style>

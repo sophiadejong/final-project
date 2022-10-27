@@ -244,6 +244,18 @@ const deleteTask = () => {
   .item-container {
     width: 74vw;
   }
+
+  .title, .description {
+    font-size: 1.4rem;
+  }
+
+.completed-task,
+.show-edit,
+.delete-task,
+.edit-btn,
+.close-edit-btn {
+  font-size: 0.8rem;
+}
 }
 
 

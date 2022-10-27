@@ -2,6 +2,7 @@
   <body>
     <Header />
     <div class="all-items">
+      <h4 id="show-hide">SHOW:</h4>
       <div class="show-filters">
         <h4 id="hide-show">SHOW:</h4>
       <button @click="filter='showAll'" class="filter-btns" style="background-color: blue; color: white">All tasks</button>
@@ -114,6 +115,10 @@ body {
   color: blue;
 }
 
+#show-hide {
+  display: none;
+}
+
 .filter-btns {
   width: auto;
   border-radius: 5px;
@@ -143,6 +148,10 @@ body {
 
 @media screen and (max-width: 900px) {
 
+  /* p {
+    font-size: 1.2rem;
+  } */
+
   .all-items {
     padding-top: 25%;
   }
@@ -154,6 +163,13 @@ body {
   .filter-btns {
     font-size: 0.65rem;
   }
+
+  #show-hide {
+  display: block;
+  margin: 0;
+  padding: 0 0 3% 10%;
+  color: blue;
+}
 
   #hide-show {
     display: none;

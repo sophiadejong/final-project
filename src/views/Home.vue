@@ -113,6 +113,7 @@ body {
 .show-filters h4 {
   color: blue;
 }
+
 .filter-btns {
   width: auto;
   border-radius: 5px;
@@ -138,9 +139,9 @@ body {
     padding-left: 15%;
     padding-right: 15%;
   }
-  .filter-btns {
+  /* .filter-btns {
     font-size: 0.8rem;
-  }
+  } */
   
 }
 
@@ -151,7 +152,7 @@ body {
   }
 
   .filter-btns {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   
 }

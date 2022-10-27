@@ -96,7 +96,7 @@ const errorFunction = () => {
 
 .task-form {
   background-color: blue;
-  /* width: 23%; */
+  width: 23vw;
   border-radius: 25px;
   padding: 6%;
   font-family: "Darker Grotesque", sans-serif;

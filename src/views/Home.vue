@@ -3,9 +3,9 @@
     <Header />
     <div class="all-items">
       <div class="show-filters">
-      <button @click="filter='showAll'">Show all</button>
-      <button @click="filter='completedTasks'">Completed</button>
-      <button @click="filter='incompletedTasks'">Incompleted</button>
+      <button @click="filter='showAll'" style="background-color: blue; color: white">Show all</button>
+      <button @click="filter='completedTasks'" style="background-color: green; color: white">Completed</button>
+      <button @click="filter='incompletedTasks'" style="background-color: red; color: white">Incompleted</button>
     </div>
       <!-- <div class="title-add">Add a new task</div> -->
       <div class="container-old-items">
@@ -84,6 +84,15 @@ body {
   font-family: "Darker Grotesque", sans-serif;
 }
 
+body {
+  background: linear-gradient(
+    90deg,
+    blue 0%,
+    rgba(255, 232, 214, 0) 3%,
+    rgba(255, 232, 214, 0) 97%,
+    blue 100%);
+}
+
 .all-items {
   padding-top: 7.5%;
   margin: 0;
@@ -99,22 +108,36 @@ body {
   /* flex-wrap: wrap; */
   grid-template-columns: auto auto auto;
   /* align-items: center;
+  
   justify-content: center; */
 }
 
 .show-filters {
-  padding-left: 10%;
+    /* position: absolute; */
+    right: 0;
+    padding-left: 10%;
+    padding-right: 67%;
+    display: flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
 }
 
 button {
   width: auto;
   /* aspect-ratio: 1; */
   border-radius: 5px;
-  padding: 1%;
-  margin-right: 2%;
+  padding: 2%;
+  /* margin-right: 1%; */
   color: blue;
   font-size: 0.7rem;
   font-weight: bold;
   border: 2px solid transparent;
 } 
+
+@media screen and (max-width: 900px) {
+  .container-old-items {
+    grid-template-columns: auto auto;
+  }
+}
+
 </style>

@@ -2,16 +2,22 @@
   <body>
     <Header />
     <div class="all-items">
+      <div class="show-filters">
+      <button @click="filter='showAll'">Show all</button>
+      <button @click="filter='completedTasks'">Completed</button>
+      <button @click="filter='incompletedTasks'">Incompleted</button>
+    </div>
+      <!-- <div class="title-add">Add a new task</div> -->
       <div class="container-old-items">
         <NewTask @childEmitTask="addTask" />
-        <TaskItem
-          v-for="task in tasks"
-          :key="task.id"
-          :item="task"
-          @childToggleStatus="completedTask"
-          @childEditStatus="editTask"
-          @childDeleteStatus="deleteTask"
-        />
+        <div v-for="task in tasks" :key="task.id" v-show="filter==='showAll' ? true : (filter==='completedTasks' ? task.is_completed : !task.is_completed)">
+          <TaskItem
+            :item="task"
+            @childToggleStatus="completedTask"
+            @childEditStatus="editTask"
+            @childDeleteStatus="deleteTask"
+          />
+        </div>
       </div>
     </div>
     <Footer />
@@ -24,7 +30,9 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import Footer from "../components/Footer.vue";
 import { useTaskStore } from "../store/task";
-import { computed } from 'vue'
+import { ref, computed } from "vue";
+
+const filter = ref('showAll') 
 
 useTaskStore().getTasks();
 const addTask = async (newTask) => {
@@ -37,10 +45,10 @@ const addTask = async (newTask) => {
   useTaskStore().getTasks();
 };
 
-const tasks = computed (() => {
+const tasks = computed(() => {
   // useTaskStore().tasks.filter()
-  return useTaskStore().tasks
-}) 
+  return useTaskStore().tasks;
+});
 // un/completed true or false
 // crear variable que marque el filtro, usar variable en el filter y retornar lo que de el filter
 
@@ -49,6 +57,9 @@ const completedTask = async (id, booleanValue) => {
   const response = await useTaskStore().completedTask(id, booleanValue);
   useTaskStore().getTasks();
 };
+
+
+
 
 const editTask = async (newTask) => {
   const response = await useTaskStore().editTask(
@@ -74,7 +85,8 @@ body {
 }
 
 .all-items {
-  padding-top: 8%;
+  padding-top: 7.5%;
+  margin: 0;
 }
 
 .container-old-items {
@@ -89,4 +101,20 @@ body {
   /* align-items: center;
   justify-content: center; */
 }
+
+.show-filters {
+  padding-left: 10%;
+}
+
+button {
+  width: auto;
+  /* aspect-ratio: 1; */
+  border-radius: 5px;
+  padding: 1%;
+  margin-right: 2%;
+  color: blue;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: 2px solid transparent;
+} 
 </style>

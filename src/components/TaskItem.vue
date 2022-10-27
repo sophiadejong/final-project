@@ -65,7 +65,8 @@
           />
         </div>
         <div class="edit-close-btns">
-          <button type="submit" id="btnEdit" class="edit-btn">Edit task</button>
+          <p v-if="showErrorMessage" class="" role="alert">{{ errorMessage }}</p>
+          <button @click.prevent="editTask" type="submit" id="btnEdit" class="edit-btn">Edit task</button>
           <button v-on:click="showEditOptions = false" type="" id="closeEdit" class="close-edit-btn">Close edit task</button>
         </div>
       </form>
@@ -87,6 +88,7 @@ const showEditOptions = ref(false);
 const isCompleted = ref(false);
 const emit = defineEmits([
   "childEditStatus",
+  "childEmitTask", 
   "childToggleStatus",
   "childDeleteStatus",
 ]);
@@ -97,14 +99,50 @@ const date = computed ( () => {
 })
 
 const editTask = () => {
-  const newTask = {
+  if (taskTitle.value.length === 0 || taskDescription.value.length === 0) {
+    showErrorMessage.value = true;
+    errorMessage.value = "Task needs a title and description to be saved"
+    setTimeout(() => {
+      showErrorMessage.value = false;
+    }, 5000);
+  } else {
+    const newTask = {
     title: taskTitle.value,
     description: taskDescription.value,
     id: props.item.id
   };
   emit("childEditStatus", newTask);
   (taskTitle.value = ""), (taskDescription.value = "");
+  }
 };
+
+// const title = ref('')
+// const description = ref('')
+
+const showErrorMessage = ref(false)
+const errorMessage = ref(null);
+// const emit = defineEmits(["childEmitTask"])
+
+// const errorFunction = () => {
+//   if (taskTitle.value.length === 0 || taskDescription.value.length === 0) {
+//     showErrorMessage.value = true;
+//     errorMessage.value = "Task needs a title and description to be saved"
+//     setTimeout(() => {
+//       showErrorMessage.value = false;
+//     }, 5000);
+//   } 
+  // else {
+  //   const editedTask = {
+  //     title: taskTitle.value,
+  //     description: taskDescription.value,
+  //   };
+  //   emit("childEmitTask", editedTask);
+  //   title.value = "";
+  //   description.value = "";
+  //   id.value = "";
+  // }
+// 
+
 
 const completedTask = (id) => {
   isCompleted.value = !isCompleted.value;
@@ -114,6 +152,7 @@ const completedTask = (id) => {
 const deleteTask = () => {
   emit("childDeleteStatus", props.item.id);
 };
+
 
 
 </script>

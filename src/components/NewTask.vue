@@ -1,7 +1,8 @@
 <template>
   <div class="container-tasks">
-    <h2 class="title-margin">Add a new task</h2>
+    <!-- <h2 class="title-margin">Add a new task</h2> -->
     <div class="task-form" id="formInputs">
+        <div class="title-add">Add a new task</div>
       <input
         type="text"
         id="form3Example1"
@@ -50,7 +51,6 @@ const errorFunction = () => {
     const newTask = {
       title: title.value,
       description: description.value,
-      // id: id.value,
     };
     emit("childEmitTask", newTask);
     title.value = "";
@@ -58,6 +58,7 @@ const errorFunction = () => {
     id.value = "";
   }
 };
+
 </script>
 
 <style>
@@ -67,6 +68,17 @@ const errorFunction = () => {
   padding-left: 6%;
   margin: 0 0 2% 0;
   text-transform: uppercase;
+}
+
+.title-add {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 3%;
+  font-size: 1.2rem;
+  /* margin: 0; */
+  color: white;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
 }
 
 .container-tasks h2 {

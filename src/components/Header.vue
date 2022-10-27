@@ -51,7 +51,6 @@ body {
 h2 {
   letter-spacing: .1rem;
   font-family: 'Montserrat Alternates', sans-serif;
-
 }
 
 #check {

@@ -103,7 +103,7 @@ body {
     /* position: absolute; */
     right: 0;
     padding-left: 60%;
-    padding-right: 8%;
+    padding-right: 8.5%;
     display: flex;
     justify-content: space-between;
     width: -webkit-fill-available;

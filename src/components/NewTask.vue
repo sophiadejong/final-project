@@ -18,7 +18,7 @@
           v-model="description"
         />
       </div>
-      <div class="">
+      <div class="show-error">
         <p v-if="showErrorMessage" class="" role="alert">{{ errorMessage }}</p>
         <button @click.prevent="errorFunction" class="btn-add-task">Add a task</button>
       </div>
@@ -40,9 +40,9 @@ const errorMessage = ref(null);
 const emit = defineEmits(["childEmitTask"])
 
 const errorFunction = () => {
-  if (title.value.length === 0) {
+  if (title.value.length === 0 || description.value.length === 0) {
     showErrorMessage.value = true;
-    errorMessage.value = "Task necesita un titulo para guardarse"
+    errorMessage.value = "Task needs a title and description to be saved"
     setTimeout(() => {
       showErrorMessage.value = false;
     }, 5000);
@@ -88,13 +88,12 @@ const errorFunction = () => {
   border-radius: 25px;
   padding: 6%;
   font-family: "Darker Grotesque", sans-serif;
-
 }
 
-/* textarea {
-  position: absolute;
-    width: 100%;
-} */
+.show-error p {
+  color: white;
+  font-size: 0.8;
+}
 
 input,
 textarea {

@@ -87,6 +87,12 @@ a {
 }
 
 @media screen and  (max-width: 900px) {
+  #today {
+    display: none;
+  }
+}
+
+@media screen and  (max-width: 780px) {
   #welcomemsg {
     display: none;
   }

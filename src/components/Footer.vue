@@ -4,20 +4,12 @@
       <div class="show"><p><b>Sophia de Jong</b></p></div>
       <!-- <div class="hide"><u>Username:</u><b>&nbsp;<span>{{ name }}</span></b></p></div> -->
       <div><p>2022</p></div>
-      <div><p><b>Ironhack BCN</b></p></div>
+      <div class="hide"><p><b>Ironhack BCN</b></p></div>
     </div>
   </footer>
 </template>
 
 <script>
-// import { useRouter } from 'vue-router'
-// import { useUserStore } from '../store/auth'
-
-// const userStore = useUserStore();
-// const email = userStore.user.email;
-
-// const name = email;
-
 
 </script>
 
@@ -37,17 +29,11 @@
   justify-content: space-between;
 }
 
-/* .hide {
-  display: none;
-}
 
 @media screen and  (max-width: 900px) {
   .hide {
-    display: block;
-  }
-
-  .show {
     display: none;
   }
-} */
+
+}
 </style>

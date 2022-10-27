@@ -96,8 +96,9 @@ const errorFunction = () => {
 
 .task-form {
   background-color: blue;
-  width: 23vw;
+  width: 23.5vw;
   border-radius: 25px;
+  margin-top: -17%;
   padding: 6%;
   font-family: "Darker Grotesque", sans-serif;
 }
@@ -131,6 +132,7 @@ textarea {
 @media screen and  (max-width: 900px) {
   .task-form {
     width: 35vw;
+    margin-top: 0;
   }
 }
 

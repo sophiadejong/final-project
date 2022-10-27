@@ -3,9 +3,10 @@
     <Header />
     <div class="all-items">
       <div class="show-filters">
-      <button @click="filter='showAll'" style="background-color: blue; color: white">Show all</button>
-      <button @click="filter='completedTasks'" style="background-color: green; color: white">Completed</button>
-      <button @click="filter='incompletedTasks'" style="background-color: red; color: white">Incompleted</button>
+        <h4>SHOW:</h4>
+      <button @click="filter='showAll'" class="filter-btns" style="background-color: blue; color: white">All tasks</button>
+      <button @click="filter='completedTasks'" class="filter-btns" style="background-color: green; color: white">Completed</button>
+      <button @click="filter='incompletedTasks'" class="filter-btns" style="background-color: red; color: white">Incompleted</button>
     </div>
       <!-- <div class="title-add">Add a new task</div> -->
       <div class="container-old-items">
@@ -83,6 +84,7 @@ body {
 .all-items {
   padding-top: 7.5%;
   margin: 0;
+  padding-bottom: 10%;
 }
 .container-old-items {
   width: 84%;
@@ -100,23 +102,30 @@ body {
 .show-filters {
     /* position: absolute; */
     right: 0;
-    padding-left: 10%;
-    padding-right: 67%;
+    padding-left: 60%;
+    padding-right: 8%;
     display: flex;
     justify-content: space-between;
     width: -webkit-fill-available;
+    align-items: center;
 }
-button {
+
+.show-filters h4 {
+  color: blue;
+}
+.filter-btns {
   width: auto;
-  /* aspect-ratio: 1; */
   border-radius: 5px;
   padding: 2%;
-  /* margin-right: 1%; */
-  color: blue;
+  height: fit-content;
   font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
   font-weight: bold;
   border: 2px solid transparent;
+  font-family: 'Montserrat Alternates', sans-serif;
 } 
+
 @media screen and (max-width: 900px) {
   .container-old-items {
     grid-template-columns: auto auto;
@@ -129,7 +138,7 @@ button {
     padding-left: 15%;
     padding-right: 15%;
   }
-  button {
+  .filter-btns {
     font-size: 0.8rem;
   }
   
@@ -141,7 +150,7 @@ button {
     grid-template-columns: auto;
   }
 
-  button {
+  .filter-btns {
     font-size: 1rem;
   }
   

@@ -95,6 +95,8 @@ input {
   border-radius: 5px;
   margin: 2% 0 3% 0;
   padding: 2% 0 2% 3%;
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1rem;
 }
 
 button {
